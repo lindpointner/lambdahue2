@@ -1,18 +1,17 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class JavamitForEach {
-    ArrayList<String> liste = new ArrayList<>();
+    public static void main (String[]args){
+        List<String> liste = Arrays.asList("Hello", "World");
 
-    public void showWithForEach(){
-        for (int i = 0; i < liste.size(); i++){
-            System.out.println(liste.get(i));
+        for (String s : liste){
+            System.out.println(s);
         }
-    }
 
-    public void showWithOldForEach(){
+        liste.forEach((String s) -> System.out.println(s));
+
         liste.forEach(System.out::println);
     }
-
-
 }

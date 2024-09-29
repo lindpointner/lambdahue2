@@ -1,6 +1,11 @@
 public class NumberTester {
+    private final String fileName;
+    private NumberTest oddTester;
+    private NumberTest primeTester;
+    private NumberTest palindromeTester;
+
     public NumberTester(String fileName) {
-        //TODO
+        this.fileName = fileName;
     }
     public void setOddEvenTester(NumberTest oddTester) {
         this.oddTester = oddTester;
@@ -12,6 +17,6 @@ public class NumberTester {
         this.palindromeTester =palindromeTester;
     }
     public void testFile() {
-        //TODO
+
     }
 }
