@@ -45,6 +45,7 @@ public class NumberTester {
                     }
                 }
             }
+            bufferedReader.close();
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
