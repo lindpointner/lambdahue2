@@ -1,7 +1,12 @@
 public class RationalCalculator extends AbstractCalculator{
 
-    public RationalCalculator(CalculationOperation add, CalculationOperation subtract, CalculationOperation mutliply, CalculationOperation devide){
-        super(add, subtract, mutliply, devide);
+    public RationalCalculator(){
+        super(
+                (x, y) -> new Number(x.getA() + y.getA(), x.getB() + y.getB()),
+                (x, y) -> new Number(x.getA() - y.getA(), x.getB() - y.getB()),
+                (x, y) -> new Number(x.getA() * y.getA(), x.getB() * y.getB()),
+                (x, y) -> new Number(x.getA() / y.getA(), x.getB() / y.getB())
+        );
     }
     @Override
     public Number add(Number a, Number b) {

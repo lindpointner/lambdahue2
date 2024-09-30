@@ -21,36 +21,29 @@ public class NumberTester {
     public void setPalindromeTester(NumberTest palindromeTester) {
         this.palindromeTester =palindromeTester;
     }
-    public void testFile() {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))){
-            int tests = Integer.parseInt(bufferedReader.readLine());
-            for (int i = 0; i < tests; i++) {
-                String[] parts = bufferedReader.readLine().split(" ");
-                int test = Integer.parseInt(parts[0]);
-                int numbers = Integer.parseInt(parts[1]);
+    public void testFile() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        int i= Integer.parseInt(reader.readLine().trim());
 
+        for (int y = 0; y < i; y++) {
+            String[] parts = reader.readLine().split(" ");
+            int test = Integer.parseInt(parts[0].trim());
+            int number = Integer.parseInt(parts[1].trim());
 
-                switch (tests) {
-                    case 1: {
-                        System.out.println(oddTester.TestNumber(numbers) ? "ODD" : "EVEN");
-                        break;
-                    }
-                    case 2:{
-                        System.out.println(primeTester.TestNumber(numbers) ? "PRIME" : "NO PRIME");
-                        break;
-                    }
-                    case 3:{
-                        System.out.println(palindromeTester.TestNumber(numbers) ? "PALINDROME" : "NO PALINDROME");
-                        break;
-                    }
-                }
+            switch (test) {
+                case 1:
+                    System.out.println(oddTester.TestNumber(number) ? "EVEN" : "ODD");
+                    break;
+                case 2:
+                    System.out.println(primeTester.TestNumber(number) ? "PRIME" : "NO PRIME");
+                    break;
+                case 3:
+                    System.out.println(palindromeTester.TestNumber(number) ? "PALINDROME" : "NO PALINDROME");
+                    break;
+                default:
+                    System.out.println("Ungültiger Test: " + test);
             }
-            bufferedReader.close();
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
+        reader.close();
     }
 }
