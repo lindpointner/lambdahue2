@@ -1,8 +1,15 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main (String[]args){
+    public static void main (String[]args) throws IOException {
+        NumberTester numberTester = new NumberTester("test.txt");
 
+        numberTester.setOddEvenTester(number -> number % 2 == 0);
+        numberTester.setPrimeTester(Main::isPrime);
+        numberTester.setPalindromeTester(Main::isPalindrome);
+
+        numberTester.testFile();
     }
 
     private static void calculator() {
